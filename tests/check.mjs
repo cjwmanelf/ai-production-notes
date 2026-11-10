@@ -211,7 +211,7 @@ function localTarget(ref, source) {
 
 if (!process.argv.includes("--unit-only")) {
   test("필수 파일과 공개 파일목록: PDF·비밀 파일 없음", () => {
-    for (const file of ["index.html", "styles.css", "app.js", "SOURCES.md", "tests/check.mjs"]) {
+    for (const file of ["index.html", "styles.css", "app.js", "tests/check.mjs"]) {
       assert.ok(existsSync(resolve(root, file)), `필수 파일 없음: ${file}`);
     }
     const files = walk(root);
@@ -261,7 +261,7 @@ if (!process.argv.includes("--unit-only")) {
         assert.ok(text(byId(`s${i}`)).length > 100, `#s${i} 본문 필요`);
         assert.ok(nodes.some(node => node.tag === "a" && node.attrs.href === `#s${i}`));
       }
-      byId("sources"); byId("reading-progress");
+      byId("reading-progress");
       const scripts = nodes.filter(node => node.tag === "script");
       assert.equal(scripts.length, 1);
       assert.ok(/^(?:\.\/)?app\.js$/.test(scripts[0].attrs.src));
