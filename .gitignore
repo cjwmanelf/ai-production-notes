@@ -1,0 +1,9 @@
+BRIEF.md
+.task-notes/
+node_modules/
+.env
+.env.*
+*.pdf
+*.log
+screenshots/
+
